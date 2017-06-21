@@ -7,6 +7,7 @@ import android.view.MenuItem
 
 // add librarys here
 import android.widget.*
+import org.json.JSONObject
 
 class MainActivity : ActionBarActivity() {
 
@@ -17,10 +18,18 @@ class MainActivity : ActionBarActivity() {
         val textView1 = findViewById(R.id.textView) as TextView
         val button1 = findViewById(R.id.button1) as Button
 
+        val testString = "{\"screen_name\":\"katty0324\",\"age\":23}";
+
         button1.setOnClickListener{
             v ->
             textView1.text = "hogehoge"
             makeToast("hogehoge")
+            try{
+                var jsonobject = JSONObject(testString) as JSONObject
+                makeToast("json test :" + jsonobject.getString("screen_name"))
+            }catch(e: Exception){
+                makeToast("miss")
+            }
         }
     }
 
