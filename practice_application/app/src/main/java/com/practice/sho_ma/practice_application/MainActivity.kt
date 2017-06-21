@@ -20,6 +20,12 @@ class MainActivity : ActionBarActivity() {
         button1.setOnClickListener{
             v ->
             textView1.text = "hogehoge"
+            makeToast("hogehoge")
         }
+    }
+
+    fun makeToast(massage: String){
+        val toast = Toast.makeText(this, massage, Toast.LENGTH_SHORT)
+        toast.show()
     }
 }
