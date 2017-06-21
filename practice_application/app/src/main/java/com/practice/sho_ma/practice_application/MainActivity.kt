@@ -8,6 +8,7 @@ import android.view.MenuItem
 // add librarys here
 import android.widget.*
 import org.json.JSONObject
+import java.util.ArrayList
 
 class MainActivity : ActionBarActivity() {
 
@@ -20,6 +21,13 @@ class MainActivity : ActionBarActivity() {
         val button2 = findViewById(R.id.button2) as Button
 
         val testString = "{\"screen_name\":\"katty0324\",\"age\":23}";
+        val testArray = ArrayList<Int>() as ArrayList<Int>
+        var i = 0
+        while(i < 100){
+            testArray.add(i)
+            i = i + 1
+        }
+        val listAdapter = ArrayAdapter(this, R.layout.list_content, testArray)
 
         button1.setOnClickListener{
             v ->
@@ -36,6 +44,8 @@ class MainActivity : ActionBarActivity() {
         button2.setOnClickListener{
             v ->
             setContentView(R.layout.list_activity)
+            val listview1 = findViewById(R.id.listView1) as ListView
+            listview1.setAdapter(listAdapter)
         }
     }
 
