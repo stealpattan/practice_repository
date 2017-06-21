@@ -28,7 +28,7 @@
         </compilerSettings>
         <compilerArguments>
           <option name="destination" value="$MODULE_DIR$/build/tmp/kotlin-classes/releaseUnitTest" />
-          <option name="classpath" value="$USER_HOME$/.android/build-cache/db348f4b35f7274186667d298196ef47c42b711c/output/jars/classes.jar:/Users/shoma-ito/.android/build-cache/8a525d377b40fa7539d4f307804e7dc2c2fd8a95/output/jars/classes.jar:/Users/shoma-ito/.android/build-cache/8a525d377b40fa7539d4f307804e7dc2c2fd8a95/output/jars/libs/internal_impl-22.2.0.jar:/Users/shoma-ito/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar:/Users/shoma-ito/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jre7/1.1.2-5/6617f5ad8c76e5141fff9da5b8975081cad24ccf/kotlin-stdlib-jre7-1.1.2-5.jar:/Users/shoma-ito/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.1.2-5/508b8b59843653756aeed058a3a421afa0657bcb/kotlin-stdlib-1.1.2-5.jar:/Users/shoma-ito/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar:/Users/shoma-ito/.gradle/caches/modules-2/files-2.1/com.beust/klaxon/0.30/c37757a35ce0133a9c3f9bff06895187667f42fd/klaxon-0.30.jar:/Users/shoma-ito/Library/Android/sdk/platforms/android-22/android.jar" />
+          <option name="classpath" value="$USER_HOME$/.android/build-cache/db348f4b35f7274186667d298196ef47c42b711c/output/jars/classes.jar:/Users/shoma-ito/.android/build-cache/8a525d377b40fa7539d4f307804e7dc2c2fd8a95/output/jars/classes.jar:/Users/shoma-ito/.android/build-cache/8a525d377b40fa7539d4f307804e7dc2c2fd8a95/output/jars/libs/internal_impl-22.2.0.jar:/Users/shoma-ito/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar:/Users/shoma-ito/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jre7/1.1.2-5/6617f5ad8c76e5141fff9da5b8975081cad24ccf/kotlin-stdlib-jre7-1.1.2-5.jar:/Users/shoma-ito/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.1.2-5/508b8b59843653756aeed058a3a421afa0657bcb/kotlin-stdlib-1.1.2-5.jar:/Users/shoma-ito/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar:/Users/shoma-ito/Library/Android/sdk/platforms/android-22/android.jar" />
           <option name="noStdlib" value="true" />
           <option name="noReflect" value="true" />
           <option name="moduleName" value="app_release" />
@@ -130,7 +130,6 @@
     <orderEntry type="jdk" jdkName="Android API 22 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="kotlin-stdlib-1.1.2-5" level="project" />
-    <orderEntry type="library" exported="" name="klaxon-0.30" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-22.2.0" level="project" />
     <orderEntry type="library" exported="" name="kotlin-stdlib-jre7-1.1.2-5" level="project" />
     <orderEntry type="library" exported="" name="support-v4-22.2.0" level="project" />
