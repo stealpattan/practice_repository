@@ -17,6 +17,7 @@ class MainActivity : ActionBarActivity() {
 
         val textView1 = findViewById(R.id.textView) as TextView
         val button1 = findViewById(R.id.button1) as Button
+        val button2 = findViewById(R.id.button2) as Button
 
         val testString = "{\"screen_name\":\"katty0324\",\"age\":23}";
 
@@ -30,6 +31,11 @@ class MainActivity : ActionBarActivity() {
             }catch(e: Exception){
                 makeToast("miss")
             }
+        }
+
+        button2.setOnClickListener{
+            v ->
+            setContentView(R.layout.list_activity)
         }
     }
 
