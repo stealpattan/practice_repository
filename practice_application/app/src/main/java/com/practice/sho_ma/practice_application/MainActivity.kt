@@ -17,7 +17,9 @@ class MainActivity : FragmentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //widgets initialize here
         val viewPager = findViewById(R.id.pager) as ViewPager
+
         viewPager.setAdapter(MyPagerAdapter(getSupportFragmentManager()))
     }
     fun makeToast(massage: String){
