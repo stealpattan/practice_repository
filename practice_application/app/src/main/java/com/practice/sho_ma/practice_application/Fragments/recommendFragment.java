@@ -7,10 +7,22 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.view.View;
 import android.support.v4.app.Fragment;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class recommendFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        return inflater.inflate(R.layout.recommend, null);
+        View vi = inflater.inflate(R.layout.recommend, null);
+        Button button1 = (Button)vi.findViewById(R.id.button1);
+        final TextView textview1 = (TextView)vi.findViewById(R.id.textView2);
+
+        button1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                textview1.setText("ボタンが押されましたの");
+            }
+        });
+        return vi;
     }
 }
