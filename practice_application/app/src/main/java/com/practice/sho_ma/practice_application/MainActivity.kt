@@ -11,6 +11,9 @@ import android.widget.*
 import okhttp3.*
 //JSON
 import org.json.JSONObject
+import org.json.JSONArray
+
+import android.util.Log
 
 open class MyAsyncTask:AsyncTask<Void,Void,String>(){
     override fun doInBackground(vararg param: Void):String?{
@@ -33,14 +36,16 @@ class MainActivity : ActionBarActivity() {
                 override fun doInBackground(vararg param: Void):String?{
                     return run()
                 }
-                override fun onPostExecute(text: String){
+                override fun onPostExecute(text:String){
                     //testtext.setText(text)
                     try{
-                        var json_content = JSONObject(text) as JSONObject
-                        val str = json_content.getStirng(0).getString("id")
-                        testtext.setText(str)
+                        var jsonarray = JSONArray(text) as JSONArray
+                        var jsonobj = jsonarray.getJSONObject(0) as JSONObject
+                        var jsonstr = jsonobj.getString("id")
+                        testtext.setText(jsonstr)
                     }catch(e: Exception){
-                        testtext.setText(e)
+                        testtext.setText("error" + e)
+                        Log.e("error","error",e)
                     }
                 }
             }.execute()
