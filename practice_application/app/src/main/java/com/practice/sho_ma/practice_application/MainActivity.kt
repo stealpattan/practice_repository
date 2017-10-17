@@ -9,9 +9,16 @@ import android.view.MenuItem
 import android.widget.*
 //http connection
 import okhttp3.*
+import java.net.URL
+import java.net.HttpURLConnection
+//java io
+import java.io.InputStream
 //JSON
 import org.json.JSONObject
 import org.json.JSONArray
+//Bitmap
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 
 import android.util.Log
 
@@ -21,6 +28,13 @@ open class MyAsyncTask:AsyncTask<Void,Void,String>(){
     }
     override fun onPostExecute(text:String){}
 }
+open class subtask:AsyncTask<Void,Void,Bitmap>(){
+    override fun doInBackground(vararg param: Void):Bitmap?{
+        return null
+    }
+    override fun onPostExecute(pic: Bitmap){}
+}
+
 
 class MainActivity : ActionBarActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,26 +43,24 @@ class MainActivity : ActionBarActivity() {
 
         val testbutton = findViewById(R.id.testbutton) as Button
         val testtext = findViewById(R.id.testtext) as TextView
+        val imgv = findViewById(R.id.imgv) as ImageView
 
         testbutton.setOnClickListener{
             v->
-            object:MyAsyncTask(){
-                override fun doInBackground(vararg param: Void):String?{
-                    return run()
-                }
-                override fun onPostExecute(text:String){
-                    //testtext.setText(text)
-                    try{
-                        var jsonarray = JSONArray(text) as JSONArray
-                        var jsonobj = jsonarray.getJSONObject(0) as JSONObject
-                        var jsonstr = jsonobj.getString("id")
-                        testtext.setText(jsonstr)
-                    }catch(e: Exception){
-                        testtext.setText("error" + e)
-                        Log.e("error","error",e)
+            try {
+                testtext.setText("button is bushed")
+                object : subtask() {
+                    override fun doInBackground(vararg param: Void): Bitmap? {
+                        return runPic("")
                     }
-                }
-            }.execute()
+
+                    override fun onPostExecute(pic: Bitmap) {
+                        imgv.setImageBitmap(pic)
+                    }
+                }.execute()
+            }catch(e:Exception){
+                Log.e("error","error",e)
+            }
         }
     }
     fun makeToast(massage: String){
@@ -64,6 +76,38 @@ class MainActivity : ActionBarActivity() {
             return res.body()?.string()
         }catch(e: Exception){
             return "error"
+        }
+    }
+    fun runPic(url: String):Bitmap?{
+        try{
+            val client = OkHttpClient() as OkHttpClient
+            val req = Request.Builder().url("http://tpumarker.net/wp-content/uploads/2017/03/IMG_1348-768x512.jpg").get().build()
+            val res = client.newCall(req).execute()
+            val bitmap = BitmapFactory.decodeStream(res.body()?.byteStream())
+            return bitmap
+        }catch(e: Exception){
+            return null
+        }
+    }
+    fun http():Bitmap?{
+        try{
+            val url = URL("http://tpumarker.net/wp-content/uploads/2017/03/IMG_1348-768x512.jpg") as URL
+            val connector = url.openConnection() as HttpURLConnection
+            connector.setReadTimeout(10000);
+            connector.setConnectTimeout(20000);
+            connector.setRequestMethod("GET")
+            connector.connect()
+            var res = connector.getResponseCode()
+            var bmp:Bitmap? = null
+            if(res == HttpURLConnection.HTTP_OK){
+                val inps = connector.getInputStream() as InputStream
+                bmp = BitmapFactory.decodeStream(inps)
+                inps.close()
+            }
+            return bmp
+        }catch(e: Exception){
+            Log.e("error","error",e)
+            return null
         }
     }
 }
